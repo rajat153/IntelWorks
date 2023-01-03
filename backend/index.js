@@ -79,7 +79,6 @@ app.post("/newUser", async (req, res) => {
 app.get("/view", async (req, res) => {
   try {
     const findUser = await User.find();
-    console.log(findUser);
     res.status(200).json(findUser);
   } catch (e) {
     console.log(e);
@@ -90,9 +89,6 @@ app.get("/edit/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const user = await User.findById(id);
-    console.log(req.params);
-    console.log(req.params.id);
-    console.log(user);
     res.json(user);
   } catch (e) {
     console.log(e);
